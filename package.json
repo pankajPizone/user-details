@@ -1,7 +1,7 @@
 {
   "name": "users-profile-card",
   "version": "1.0.0",
-  "description": "This is a user profile card app making use of JavaScript Fetch API as well as React JS Components, State, along with some nice CSS styling.",
+  "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
