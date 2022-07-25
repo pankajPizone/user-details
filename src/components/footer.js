@@ -9,17 +9,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="clearfix mt-4">
-        <p>
-          &copy; {this.year()}
-          <a
-            href="https://princesargbah.me"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Prince Sargbah
-          </a>
-          , Just an Unfinish Business
-        </p>
+       
       </footer>
     );
   }

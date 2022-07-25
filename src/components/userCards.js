@@ -16,7 +16,6 @@ class UserCards extends Component {
   };
 
   loadData = () => {
-    
     this.setState({
       isLoading:true
     });
