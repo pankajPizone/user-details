@@ -55,16 +55,16 @@ class UserCards extends Component {
                   <div style={{ width: "50%", height: "150px" }}>
 
                     <LogsChart
-                      cData={this.state.logData.filter((e) => data.id == e.user_id)}
+                      cData={this.state.logData.filter((e) => data.id === e.user_id)}
                     ></LogsChart>
                   </div>
                   <div style={{ width: "50%" }}>
-                    <div style={{ "fontSize": "30px" }}>{this.state.logData.filter((e) => data.id == e.user_id && e.type == "impression").length}</div>
+                    <div style={{ "fontSize": "30px" }}>{this.state.logData.filter((e) => data.id === e.user_id && e.type === "impression").length}</div>
                     <div style={{ color: "grey" }}>impression</div>
-                    <div style={{ "fontSize": "30px" }}>{this.state.logData.filter((e) => data.id == e.user_id && e.type == "conversion").length}</div>
+                    <div style={{ "fontSize": "30px" }}>{this.state.logData.filter((e) => data.id === e.user_id && e.type === "conversion").length}</div>
                     <div style={{ color: "grey" }}>conversion</div>
                     <div></div>
-                    <div style={{ "fontSize": "20px", color: "green", margin: "10px" }}>${this.sumOfRevenue(this.state.logData.filter((e) => data.id == e.user_id), "revenue")}</div>
+                    <div style={{ "fontSize": "20px", color: "green", margin: "10px" }}>${this.sumOfRevenue(this.state.logData.filter((e) => data.id === e.user_id), "revenue")}</div>
                   </div>
                 </div>
               </div>
