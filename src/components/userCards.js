@@ -8,7 +8,9 @@ class UserCards extends Component {
     logs: [],
     isLoading: false,
     page: 10,
-    total_pages: null
+    total_pages: null,
+    isError:false,
+    errorMessage:""
   };
 
   uppercase = (word) => {
@@ -71,9 +73,6 @@ class UserCards extends Component {
                   <div class="avatar-circle">
                     <span class="initials">{data.Name.split(" ")[0].charAt(0) + "" + data.Name.split(" ")[1].charAt(0)}</span>
                   </div>
-                  {/* <div className="avatar"> */}
-                  {/* <img src={data.avatar} className="card-img-top" alt="" /> */}
-                  {/* </div> */}
                   <h5 className="card-title">{this.uppercase(data.Name)}</h5>
                   <p className="card-text">
                     {data.occupation}
@@ -105,7 +104,7 @@ class UserCards extends Component {
         {
           this.state.isLoading ? <div  style={{margin: "20px"}}>Loading....</div>:<button
           className="btn btn-light btn-block w-50 mx-auto"
-          style={{margin: "20px"}}
+          style={{margin: "20px", display:this.state.page>=100 ? 'none':''}}
           onClick={e => {
             this.loadMore();
           }}
