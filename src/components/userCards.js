@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { Component } from "react";
 // import users from "../mockups/users.json";
 import logs from "../mockups/logs.json";
@@ -8,7 +7,6 @@ class UserCards extends Component {
     data: [],
     logs: [],
     isLoading: false,
-    per: 9,
     page: 10,
     total_pages: null
   };
@@ -18,16 +16,19 @@ class UserCards extends Component {
   };
 
   loadData = () => {
+    
+    this.setState({
+      isLoading:true
+    });
     let endpoint = "https://api.airtable.com/v0/appBTaX8XIvvr6zEC/Users?pageSize="+this.state.page
     var apiheaders = new Headers();
     apiheaders.append("Authorization", "Bearer key4v56MUqVr9sNJv");
 
-    // axios.get(endpoint, {headers:apiheaders}).then((d)=>{
-    //   console.log(d)
-    // })
-
     fetch(endpoint,  {method:'get',headers:apiheaders}).then(res => res.json())
     .then((user)=>{
+      this.setState({
+        isLoading:false
+      });
       console.log(user)
       if(!user.error){
         this.setState({
@@ -102,7 +103,8 @@ class UserCards extends Component {
           ))
           }
         </div>
-        <button
+        {
+          this.state.isLoading ? <div  style={{margin: "20px"}}>Loading....</div>:<button
           className="btn btn-light btn-block w-50 mx-auto"
           style={{margin: "20px"}}
           onClick={e => {
@@ -111,6 +113,8 @@ class UserCards extends Component {
         >
           Load More Users
         </button>
+        }
+        
       </div >
     );
   }
