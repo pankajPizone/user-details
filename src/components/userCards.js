@@ -35,7 +35,7 @@ class UserCards extends Component {
       <div className="clearfix">
         <div className="row">
           {this.state.data.map((data) => (
-            <div className="col-md-4 animated fadeIn" key={data.id}>
+            <div className="col-md-6 animated fadeIn" key={data.id}>
               <div className="card">
                 <div className="card-body">
                   <div class="avatar-circle">
